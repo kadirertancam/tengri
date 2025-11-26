@@ -1050,6 +1050,8 @@ body {
 }
 
 /* === RESPONSIVE === */
+
+/* Tablet and smaller desktops */
 @media (max-width: 1024px) {
     .deck-builder-layout {
         grid-template-columns: 1fr;
@@ -1081,29 +1083,525 @@ body {
 
     .end-turn-text {
         font-size: 0.8rem;
+    .menu-container {
+        padding: var(--spacing-xl);
+        max-width: 450px;
     }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
     .game-title {
         font-size: 2.5rem;
+        letter-spacing: 2px;
     }
-    
+
+    .game-subtitle {
+        font-size: 1rem;
+    }
+
+    .menu-container {
+        padding: var(--spacing-lg);
+        max-width: 400px;
+    }
+
+    .menu-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    .menu-btn.primary {
+        font-size: 1.1rem;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .btn-icon {
+        font-size: 1.3rem;
+    }
+
     .card {
         width: 120px;
         height: 170px;
     }
-    
+
     .card-back {
         width: 120px;
         height: 170px;
     }
-    
+
+    .card-name {
+        font-size: 0.8rem;
+    }
+
+    .card-type {
+        font-size: 0.65rem;
+    }
+
+    .card-image {
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .card-text {
+        font-size: 0.6rem;
+    }
+
     .board {
         min-height: 150px;
+        margin: 0 var(--spacing-md);
     }
-    
+
     .hand {
         min-height: 140px;
+        gap: var(--spacing-xs);
+    }
+
+    .top-bar {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .game-info {
+        gap: var(--spacing-md);
+        font-size: 0.95rem;
+    }
+
+    .player-area {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .player-avatar img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .player-name {
+        font-size: 1rem;
+    }
+
+    .stat-item {
+        padding: 4px var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+    .screen-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .screen-content {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Mobile devices (landscape and large phones) */
+@media (max-width: 600px) {
+    :root {
+        --spacing-xs: 3px;
+        --spacing-sm: 6px;
+        --spacing-md: 12px;
+        --spacing-lg: 18px;
+        --spacing-xl: 24px;
+        --spacing-xxl: 32px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Main Menu */
+    .menu-container {
+        padding: var(--spacing-md);
+        width: 95%;
+        border-radius: var(--border-radius);
+    }
+
+    .game-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .game-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .logo-ornament {
+        font-size: 1.2rem;
+        margin-top: var(--spacing-sm);
+    }
+
+    .menu-nav {
+        gap: var(--spacing-sm);
+    }
+
+    .menu-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.95rem;
+    }
+
+    .menu-btn.primary {
+        font-size: 1rem;
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .menu-footer {
+        font-size: 0.75rem;
+    }
+
+    /* Game Board */
+    .top-bar {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        flex-wrap: wrap;
+    }
+
+    .icon-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+
+    .game-info {
+        gap: var(--spacing-sm);
+        font-size: 0.85rem;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: var(--spacing-xs);
+    }
+
+    /* Player Area - Stack vertically on mobile */
+    .player-area {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .player-info {
+        gap: var(--spacing-sm);
+    }
+
+    .player-avatar img {
+        width: 40px;
+        height: 40px;
+        border-width: 2px;
+    }
+
+    .player-name {
+        font-size: 0.9rem;
+    }
+
+    .stat-bar {
+        gap: var(--spacing-sm);
+    }
+
+    .stat-item {
+        padding: 2px var(--spacing-xs);
+        font-size: 0.8rem;
+    }
+
+    .stat-icon {
+        font-size: 0.9rem;
+    }
+
+    .deck-info {
+        gap: var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    .deck-count, .hand-count {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+
+    /* Cards - Smaller on mobile */
+    .card {
+        width: 100px;
+        height: 145px;
+        padding: var(--spacing-xs);
+    }
+
+    .card-back {
+        width: 100px;
+        height: 145px;
+        font-size: 2.5rem;
+    }
+
+    .card-cost {
+        width: 24px;
+        height: 24px;
+        font-size: 1rem;
+        top: 3px;
+        left: 3px;
+    }
+
+    .card-name {
+        font-size: 0.7rem;
+        margin-top: 20px;
+        margin-bottom: 2px;
+    }
+
+    .card-type {
+        font-size: 0.55rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .card-image {
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .card-text {
+        font-size: 0.55rem;
+        line-height: 1.2;
+    }
+
+    .card-stats {
+        padding-top: 2px;
+    }
+
+    .stat-attack, .stat-defense {
+        font-size: 0.95rem;
+        gap: 1px;
+    }
+
+    /* Boards and Hands */
+    .board {
+        min-height: 120px;
+        padding: var(--spacing-sm);
+        margin: 0 var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+
+    .board-placeholder {
+        font-size: 0.9rem;
+    }
+
+    .hand {
+        min-height: 120px;
+        padding: var(--spacing-sm);
+        gap: 2px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+    }
+
+    .hand .card {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .battlefield-divider {
+        margin: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .divider-ornament {
+        font-size: 1.2rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    /* Screen Overlays */
+    .screen-container {
+        width: 98%;
+        max-height: 95vh;
+        border-radius: var(--border-radius);
+    }
+
+    .screen-header {
+        padding: var(--spacing-md);
+    }
+
+    .screen-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .close-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+
+    .screen-content {
+        padding: var(--spacing-md);
+    }
+
+    /* Card Grid */
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .card-grid.large {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    /* Deck Builder */
+    .deck-builder-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .filter-bar select {
+        width: 100%;
+        padding: var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+
+    .deck-list {
+        min-height: 300px;
+        max-height: 400px;
+    }
+
+    .deck-actions {
+        flex-direction: column;
+    }
+
+    .btn-action {
+        font-size: 0.9rem;
+        padding: var(--spacing-sm);
+    }
+
+    /* Tutorial */
+    .tutorial-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .tutorial-content p, .tutorial-content li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: var(--spacing-md);
+        max-width: 95%;
+    }
+
+    .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+
+    /* Loading Screen */
+    .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 4px;
+    }
+
+    .loading-content h2 {
+        font-size: 2rem;
+    }
+
+    .loading-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile devices (portrait) */
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.8rem;
+    }
+
+    .menu-btn {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        width: 90px;
+        height: 130px;
+    }
+
+    .card-back {
+        width: 90px;
+        height: 130px;
+        font-size: 2rem;
+    }
+
+    .card-cost {
+        width: 22px;
+        height: 22px;
+        font-size: 0.9rem;
+    }
+
+    .card-name {
+        font-size: 0.65rem;
+        margin-top: 18px;
+    }
+
+    .card-type {
+        font-size: 0.5rem;
+    }
+
+    .card-image {
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .card-text {
+        font-size: 0.5rem;
+    }
+
+    .stat-attack, .stat-defense {
+        font-size: 0.85rem;
+    }
+
+    .board {
+        min-height: 100px;
+    }
+
+    .hand {
+        min-height: 100px;
+    }
+
+    .player-avatar img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .menu-btn, .icon-btn, .btn-action, .close-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .card:active {
+        transform: scale(0.95);
+    }
+
+    .menu-btn:active {
+        transform: scale(0.98);
+    }
+
+    /* Disable hover effects on touch devices */
+    .card:hover::before {
+        opacity: 0;
+    }
+
+    /* Better touch targets */
+    .stat-item {
+        min-height: 32px;
     }
 }
