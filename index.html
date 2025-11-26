@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENGRÎ: Efsaneler Savaşı - Türk Mitolojisi Kart Oyunu</title>
+    <meta name="description" content="Türk mitolojisine dayanan profesyonel kart oyunu. Tanrılar, kahramanlar ve efsanevi yaratıklarla epik savaşlar.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-pattern"></div>
+    
+    <!-- Main Menu -->
+    <div id="mainMenu" class="main-menu active">
+        <div class="menu-container">
+            <div class="game-logo">
+                <h1 class="game-title">TENGRÎ</h1>
+                <p class="game-subtitle">Efsaneler Savaşı</p>
+                <div class="logo-ornament">⚔️ 🐺 ⚔️</div>
+            </div>
+            
+            <nav class="menu-nav">
+                <button class="menu-btn primary" id="btnNewGame">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">Yeni Oyun</span>
+                </button>
+                <button class="menu-btn" id="btnDeckBuilder">
+                    <span class="btn-icon">🎴</span>
+                    <span class="btn-text">Deste Oluştur</span>
+                </button>
+                <button class="menu-btn" id="btnCollection">
+                    <span class="btn-icon">📚</span>
+                    <span class="btn-text">Koleksiyonum</span>
+                </button>
+                <button class="menu-btn" id="btnTutorial">
+                    <span class="btn-icon">📖</span>
+                    <span class="btn-text">Nasıl Oynanır</span>
+                </button>
+                <button class="menu-btn" id="btnSettings">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">Ayarlar</span>
+                </button>
+            </nav>
+            
+            <div class="menu-footer">
+                <p class="version">Versiyon 1.0.0</p>
+                <p class="copyright">© 2025 TENGRÎ - Türk Mitolojisi Kart Oyunu</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Board -->
+    <div id="gameBoard" class="game-board">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="icon-btn" id="btnMenu">
+                <span>☰</span>
+            </button>
+            <div class="game-info">
+                <span class="turn-info">Tur: <span id="turnCount">1</span></span>
+                <span class="phase-info">Faz: <span id="currentPhase">Ana Faz</span></span>
+            </div>
+            <button class="icon-btn" id="btnEndTurn">
+                Turu Bitir
+            </button>
+        </div>
+        
+        <!-- Opponent Area -->
+        <div class="player-area opponent-area">
+            <div class="player-info">
+                <div class="player-avatar">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23dc143c'/%3E%3Ctext x='50' y='65' font-size='40' text-anchor='middle' fill='white'%3E👤%3C/text%3E%3C/svg%3E" alt="Rakip">
+                </div>
+                <div class="player-stats">
+                    <div class="player-name">Rakip</div>
+                    <div class="stat-bar">
+                        <div class="stat-item health">
+                            <span class="stat-icon">❤️</span>
+                            <span class="stat-value" id="opponentHealth">30</span>
+                        </div>
+                        <div class="stat-item mana">
+                            <span class="stat-icon">💎</span>
+                            <span class="stat-value" id="opponentMana">1/1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deck-info">
+                <div class="deck-count">
+                    <span class="deck-icon">🎴</span>
+                    <span id="opponentDeckCount">30</span>
+                </div>
+                <div class="hand-count">
+                    <span class="hand-icon">🃏</span>
+                    <span id="opponentHandCount">3</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Opponent Hand (Hidden) -->
+        <div class="hand opponent-hand" id="opponentHand">
+            <!-- Opponent cards (back side) will be rendered here -->
+        </div>
+        
+        <!-- Opponent Board -->
+        <div class="board opponent-board" id="opponentBoard">
+            <div class="board-placeholder">Rakip Sahası</div>
+            <!-- Opponent creatures will be placed here -->
+        </div>
+        
+        <!-- Battlefield Divider -->
+        <div class="battlefield-divider">
+            <div class="divider-line"></div>
+            <div class="divider-ornament">⚔️</div>
+        </div>
+        
+        <!-- Player Board -->
+        <div class="board player-board" id="playerBoard">
+            <div class="board-placeholder">Senin Sahan</div>
+            <!-- Player creatures will be placed here -->
+        </div>
+        
+        <!-- Player Hand -->
+        <div class="hand player-hand" id="playerHand">
+            <!-- Player cards will be rendered here -->
+        </div>
+        
+        <!-- Player Area -->
+        <div class="player-area player-area-self">
+            <div class="deck-info">
+                <div class="deck-count">
+                    <span class="deck-icon">🎴</span>
+                    <span id="playerDeckCount">30</span>
+                </div>
+                <div class="hand-count">
+                    <span class="hand-icon">🃏</span>
+                    <span id="playerHandCount">3</span>
+                </div>
+            </div>
+            
+            <div class="player-info">
+                <div class="player-avatar">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23f4c430'/%3E%3Ctext x='50' y='65' font-size='40' text-anchor='middle' fill='white'%3E👤%3C/text%3E%3C/svg%3E" alt="Sen">
+                </div>
+                <div class="player-stats">
+                    <div class="player-name">Sen</div>
+                    <div class="stat-bar">
+                        <div class="stat-item health">
+                            <span class="stat-icon">❤️</span>
+                            <span class="stat-value" id="playerHealth">30</span>
+                        </div>
+                        <div class="stat-item mana">
+                            <span class="stat-icon">💎</span>
+                            <span class="stat-value" id="playerMana">1/1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Deck Builder Screen -->
+    <div id="deckBuilder" class="screen-overlay">
+        <div class="screen-container">
+            <div class="screen-header">
+                <h2>Deste Oluşturucu</h2>
+                <button class="close-btn" data-close="deckBuilder">✕</button>
+            </div>
+            <div class="screen-content">
+                <div class="deck-builder-layout">
+                    <div class="card-pool">
+                        <h3>Mevcut Kartlar</h3>
+                        <div class="filter-bar">
+                            <select id="filterRarity">
+                                <option value="all">Tüm Nadir Kartlar</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="epic">Epic</option>
+                                <option value="rare">Rare</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="common">Common</option>
+                            </select>
+                            <select id="filterType">
+                                <option value="all">Tüm Tipler</option>
+                                <option value="god">Tanrı</option>
+                                <option value="hero">Kahraman</option>
+                                <option value="creature">Yaratık</option>
+                                <option value="evil">Kötü Ruh</option>
+                                <option value="spell">Büyü</option>
+                                <option value="artifact">Efsanevi Eşya</option>
+                            </select>
+                        </div>
+                        <div id="cardPoolGrid" class="card-grid">
+                            <!-- Cards will be rendered here -->
+                        </div>
+                    </div>
+                    <div class="deck-editor">
+                        <h3>Destem (<span id="deckCardCount">0</span>/30)</h3>
+                        <div id="deckList" class="deck-list">
+                            <!-- Deck cards will be listed here -->
+                        </div>
+                        <div class="deck-actions">
+                            <button class="btn-action" id="btnSaveDeck">Desteyi Kaydet</button>
+                            <button class="btn-action secondary" id="btnClearDeck">Temizle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Collection Screen -->
+    <div id="collection" class="screen-overlay">
+        <div class="screen-container">
+            <div class="screen-header">
+                <h2>Kart Koleksiyonum</h2>
+                <button class="close-btn" data-close="collection">✕</button>
+            </div>
+            <div class="screen-content">
+                <div id="collectionGrid" class="card-grid large">
+                    <!-- Collection cards will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tutorial Screen -->
+    <div id="tutorial" class="screen-overlay">
+        <div class="screen-container">
+            <div class="screen-header">
+                <h2>Nasıl Oynanır</h2>
+                <button class="close-btn" data-close="tutorial">✕</button>
+            </div>
+            <div class="screen-content tutorial-content">
+                <section>
+                    <h3>🎮 Oyunun Amacı</h3>
+                    <p>Rakibinin canını 0'a düşürerek oyunu kazanın! Her oyuncu 30 can ile başlar.</p>
+                </section>
+                
+                <section>
+                    <h3>💎 Mana Sistemi</h3>
+                    <p>Her tur başında otomatik olarak 1 mana kristali kazanırsınız (maksimum 10). Kartları oynamak için mana harcar, her tur başında mana yenilenir.</p>
+                </section>
+                
+                <section>
+                    <h3>🎴 Kart Tipleri</h3>
+                    <ul>
+                        <li><strong>🌟 Tanrı Kartları:</strong> En güçlü kartlar, oyunu değiştirebilir</li>
+                        <li><strong>⚔️ Kahraman Kartları:</strong> Güçlü savaşçılar ve özel yetenekler</li>
+                        <li><strong>🐺 Yaratık Kartları:</strong> Savaşçı birimler</li>
+                        <li><strong>👻 Kötü Ruh Kartları:</strong> Rakibe zarar veren özel efektler</li>
+                        <li><strong>✨ Büyü Kartları:</strong> Anlık etkiler</li>
+                        <li><strong>🗡️ Efsanevi Eşya:</strong> Kalıcı bonuslar</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>⚔️ Savaş Sistemi</h3>
+                    <p>Yaratıklarınızı rakibin yaratıklarına veya doğrudan rakibe saldırtabilirsiniz. Yaratıklar çağrıldıkları turda saldıramazlar (Haste yeteneği olanlar hariç).</p>
+                </section>
+                
+                <section>
+                    <h3>🏆 Kazanma</h3>
+                    <ul>
+                        <li>Rakibin canını 0'a düşürün</li>
+                        <li>Bazı Tanrı kartları alternatif kazanma koşulları sunar</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card Detail Modal -->
+    <div id="cardDetailModal" class="modal">
+        <div class="modal-content card-detail">
+            <button class="modal-close">✕</button>
+            <div id="cardDetailContent">
+                <!-- Card detail will be rendered here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>TENGRÎ</h2>
+            <p>Efsaneler Yükleniyor...</p>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="cards.js"></script>
+    <script src="game.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>

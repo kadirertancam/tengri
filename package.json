@@ -1,0 +1,27 @@
+{
+  "name": "3d-fps-maze-escape",
+  "version": "1.0.0",
+  "description": "Professional 3D FPS Maze Escape Game",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "game",
+    "3d",
+    "fps",
+    "maze",
+    "threejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.160.0",
+    "howler": "^2.2.4"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  }
+}
