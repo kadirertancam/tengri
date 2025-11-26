@@ -334,21 +334,24 @@ body {
 }
 
 .stat-item {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--border-radius-sm);
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .stat-item.health {
-    border: 2px solid var(--color-crimson);
+    border: 3px solid var(--color-crimson);
+    background: rgba(220, 20, 60, 0.2);
 }
 
 .stat-item.mana {
-    border: 2px solid var(--color-sapphire);
+    border: 3px solid var(--color-sapphire);
+    background: rgba(65, 105, 225, 0.2);
 }
 
 .deck-info {
@@ -1258,8 +1261,9 @@ body {
 
     /* Game Board */
     .top-bar {
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding: 4px var(--spacing-sm);
         flex-wrap: wrap;
+        min-height: auto;
     }
 
     .icon-btn {
@@ -1269,18 +1273,18 @@ body {
 
     .game-info {
         gap: var(--spacing-sm);
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         order: 3;
         width: 100%;
         justify-content: center;
-        margin-top: var(--spacing-xs);
+        margin-top: 2px;
     }
 
     /* Player Area - Stack vertically on mobile */
     .player-area {
         flex-direction: column;
         gap: var(--spacing-sm);
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding: 4px var(--spacing-sm);
     }
 
     .player-info {
@@ -1310,21 +1314,30 @@ body {
     }
 
     .stat-item {
-        padding: 4px 8px;
-        font-size: 0.95rem;
+        padding: 6px 10px;
+        font-size: 1.1rem;
         white-space: nowrap;
         min-width: auto;
         flex-shrink: 1;
-        border-width: 2px;
+        border-width: 3px;
+        font-weight: 900;
+    }
+
+    .stat-item.health {
+        background: rgba(220, 20, 60, 0.25);
+    }
+
+    .stat-item.mana {
+        background: rgba(65, 105, 225, 0.25);
     }
 
     .stat-icon {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .stat-value {
-        font-size: 0.95rem;
-        font-weight: 800;
+        font-size: 1.1rem;
+        font-weight: 900;
     }
 
     .deck-info {
