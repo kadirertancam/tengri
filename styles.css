@@ -1310,19 +1310,21 @@ body {
     }
 
     .stat-item {
-        padding: 2px 4px;
-        font-size: 0.7rem;
+        padding: 4px 8px;
+        font-size: 0.95rem;
         white-space: nowrap;
         min-width: auto;
         flex-shrink: 1;
+        border-width: 2px;
     }
 
     .stat-icon {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .stat-value {
-        font-size: 0.7rem;
+        font-size: 0.95rem;
+        font-weight: 800;
     }
 
     .deck-info {
@@ -1419,8 +1421,7 @@ body {
     }
 
     .divider-ornament {
-        font-size: 1.2rem;
-        padding: var(--spacing-xs) var(--spacing-sm);
+        display: none;
     }
 
     /* Screen Overlays */
@@ -1596,17 +1597,19 @@ body {
     }
 
     .stat-item {
-        padding: 1px 3px;
-        font-size: 0.65rem;
-        gap: 2px;
+        padding: 4px 6px;
+        font-size: 0.85rem;
+        gap: 3px;
+        border-width: 2px;
     }
 
     .stat-icon {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     .stat-value {
-        font-size: 0.65rem;
+        font-size: 0.85rem;
+        font-weight: 800;
     }
 
     .card-grid {
@@ -1643,23 +1646,23 @@ body {
         min-height: 32px;
     }
 
-    /* Mobil - buton ortada, altta */
+    /* Mobil - buton tam ortada */
     .end-turn-btn {
         width: 90px;
         height: 90px;
         left: 50%;
         right: auto;
-        top: auto;
-        bottom: 15px;
-        transform: translateX(-50%);
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
     }
 
     .end-turn-btn:hover {
-        transform: translateX(-50%) scale(1.05);
+        transform: translate(-50%, -50%) scale(1.05);
     }
 
     .end-turn-btn:active {
-        transform: translateX(-50%) scale(0.95);
+        transform: translate(-50%, -50%) scale(0.95);
     }
 
     .end-turn-glow {
@@ -1689,13 +1692,13 @@ body {
     }
 
     .end-turn-btn.disabled {
-        bottom: 15px;
-        top: auto;
-        transform: translateX(-50%);
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
     }
 
     .end-turn-btn.disabled:hover {
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -1706,7 +1709,17 @@ body {
         height: 75px;
         left: 50%;
         right: auto;
-        bottom: 12px;
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .end-turn-btn:hover {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .end-turn-btn:active {
+        transform: translate(-50%, -50%) scale(0.95);
     }
 
     .end-turn-glow {
