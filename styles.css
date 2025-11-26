@@ -1061,28 +1061,33 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 
+    /* Tablet - buton biraz küçülür ama hala orta sağda */
     .end-turn-btn {
-        width: 120px;
-        height: 120px;
-        right: 10px;
+        width: 130px;
+        height: 130px;
+        right: 15px;
     }
 
     .end-turn-glow {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
     }
 
     .end-turn-crystal {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
     }
 
     .end-turn-icon {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: 6px;
     }
 
     .end-turn-text {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+
     .menu-container {
         padding: var(--spacing-xl);
         max-width: 450px;
@@ -1603,5 +1608,89 @@ body {
     /* Better touch targets */
     .stat-item {
         min-height: 32px;
+    }
+
+    /* Mobil - buton alt sağ köşeye ve daha küçük */
+    .end-turn-btn {
+        width: 90px;
+        height: 90px;
+        right: 10px;
+        top: auto;
+        bottom: 15px;
+        transform: none;
+    }
+
+    .end-turn-btn:hover {
+        transform: scale(1.05);
+    }
+
+    .end-turn-btn:active {
+        transform: scale(0.95);
+    }
+
+    .end-turn-glow {
+        width: 110px;
+        height: 110px;
+    }
+
+    .end-turn-crystal {
+        width: 90px;
+        height: 90px;
+    }
+
+    .end-turn-icon {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+
+    .end-turn-text {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        line-height: 1.1;
+    }
+
+    /* Mobilde animasyonları hafiflet (performance) */
+    .end-turn-btn:hover .end-turn-crystal {
+        animation: crystalShine 2s linear infinite;
+    }
+
+    .end-turn-btn.disabled {
+        bottom: 15px;
+        top: auto;
+        transform: none;
+    }
+
+    .end-turn-btn.disabled:hover {
+        transform: none;
+    }
+}
+
+/* Ekstra küçük ekranlar (eski/küçük telefonlar) */
+@media (max-width: 480px) {
+    .end-turn-btn {
+        width: 75px;
+        height: 75px;
+        right: 8px;
+        bottom: 12px;
+    }
+
+    .end-turn-glow {
+        width: 90px;
+        height: 90px;
+    }
+
+    .end-turn-crystal {
+        width: 75px;
+        height: 75px;
+    }
+
+    .end-turn-icon {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .end-turn-text {
+        font-size: 0.55rem;
+        letter-spacing: 0.5px;
     }
 }
