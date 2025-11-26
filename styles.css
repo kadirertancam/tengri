@@ -1643,22 +1643,23 @@ body {
         min-height: 32px;
     }
 
-    /* Mobil - buton alt sağ köşeye ve daha küçük */
+    /* Mobil - buton ortada, altta */
     .end-turn-btn {
         width: 90px;
         height: 90px;
-        right: 10px;
+        left: 50%;
+        right: auto;
         top: auto;
         bottom: 15px;
-        transform: none;
+        transform: translateX(-50%);
     }
 
     .end-turn-btn:hover {
-        transform: scale(1.05);
+        transform: translateX(-50%) scale(1.05);
     }
 
     .end-turn-btn:active {
-        transform: scale(0.95);
+        transform: translateX(-50%) scale(0.95);
     }
 
     .end-turn-glow {
@@ -1690,11 +1691,11 @@ body {
     .end-turn-btn.disabled {
         bottom: 15px;
         top: auto;
-        transform: none;
+        transform: translateX(-50%);
     }
 
     .end-turn-btn.disabled:hover {
-        transform: none;
+        transform: translateX(-50%);
     }
 }
 
@@ -1703,7 +1704,8 @@ body {
     .end-turn-btn {
         width: 75px;
         height: 75px;
-        right: 8px;
+        left: 50%;
+        right: auto;
         bottom: 12px;
     }
 
