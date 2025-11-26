@@ -375,7 +375,7 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-md);
-    min-height: 180px;
+    min-height: 160px;
 }
 
 .opponent-hand {
@@ -398,7 +398,7 @@ body {
     border: 2px dashed rgba(244, 196, 48, 0.2);
     margin: 0 var(--spacing-lg);
     border-radius: var(--border-radius);
-    min-height: 200px;
+    min-height: 140px;
     position: relative;
 }
 
@@ -1155,13 +1155,15 @@ body {
     }
 
     .board {
-        min-height: 150px;
+        min-height: 110px;
         margin: 0 var(--spacing-md);
+        padding: var(--spacing-sm);
     }
 
     .hand {
-        min-height: 140px;
+        min-height: 120px;
         gap: var(--spacing-xs);
+        padding: var(--spacing-sm);
     }
 
     .top-bar {
@@ -1404,19 +1406,19 @@ body {
 
     /* Boards and Hands */
     .board {
-        min-height: 120px;
-        padding: var(--spacing-sm);
-        margin: 0 var(--spacing-sm);
+        min-height: 90px;
+        padding: 4px var(--spacing-xs);
+        margin: 0 var(--spacing-xs);
         gap: var(--spacing-xs);
     }
 
     .board-placeholder {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .hand {
-        min-height: 120px;
-        padding: var(--spacing-sm);
+        min-height: 100px;
+        padding: 4px var(--spacing-xs);
         gap: 2px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -1430,7 +1432,12 @@ body {
     }
 
     .battlefield-divider {
-        margin: var(--spacing-xs) var(--spacing-sm);
+        margin: 2px var(--spacing-xs);
+        height: 1px;
+    }
+
+    .divider-line {
+        height: 1px;
     }
 
     .divider-ornament {
@@ -1593,11 +1600,13 @@ body {
     }
 
     .board {
-        min-height: 100px;
+        min-height: 75px;
+        padding: 3px 4px;
     }
 
     .hand {
-        min-height: 100px;
+        min-height: 85px;
+        padding: 3px 4px;
     }
 
     .player-avatar img {
@@ -1659,99 +1668,97 @@ body {
         min-height: 32px;
     }
 
-    /* Mobil - buton tam ortada */
+    /* Mobile - keep button on right side but smaller */
     .end-turn-btn {
-        width: 90px;
-        height: 90px;
-        left: 50%;
-        right: auto;
+        width: 80px;
+        height: 80px;
+        right: 8px;
+        left: auto;
         top: 50%;
         bottom: auto;
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
     }
 
     .end-turn-btn:hover {
-        transform: translate(-50%, -50%) scale(1.05);
+        transform: translateY(-50%) scale(1.05);
     }
 
     .end-turn-btn:active {
-        transform: translate(-50%, -50%) scale(0.95);
+        transform: translateY(-50%) scale(0.95);
     }
 
     .end-turn-glow {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
     }
 
     .end-turn-crystal {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 
     .end-turn-icon {
-        font-size: 1.5rem;
-        margin-bottom: 4px;
+        font-size: 1.4rem;
+        margin-bottom: 3px;
     }
 
     .end-turn-text {
-        font-size: 0.65rem;
-        letter-spacing: 1px;
+        font-size: 0.6rem;
+        letter-spacing: 0.8px;
         line-height: 1.1;
     }
 
-    /* Mobilde animasyonları hafiflet (performance) */
+    /* Mobile - lighten animations for performance */
     .end-turn-btn:hover .end-turn-crystal {
         animation: crystalShine 2s linear infinite;
     }
 
     .end-turn-btn.disabled {
-        top: 50%;
-        bottom: auto;
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
     }
 
     .end-turn-btn.disabled:hover {
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
     }
 }
 
-/* Ekstra küçük ekranlar (eski/küçük telefonlar) */
+/* Extra small screens (old/small phones) */
 @media (max-width: 480px) {
     .end-turn-btn {
-        width: 75px;
-        height: 75px;
-        left: 50%;
-        right: auto;
+        width: 70px;
+        height: 70px;
+        right: 6px;
+        left: auto;
         top: 50%;
         bottom: auto;
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
     }
 
     .end-turn-btn:hover {
-        transform: translate(-50%, -50%) scale(1.05);
+        transform: translateY(-50%) scale(1.05);
     }
 
     .end-turn-btn:active {
-        transform: translate(-50%, -50%) scale(0.95);
+        transform: translateY(-50%) scale(0.95);
     }
 
     .end-turn-glow {
-        width: 90px;
-        height: 90px;
+        width: 85px;
+        height: 85px;
     }
 
     .end-turn-crystal {
-        width: 75px;
-        height: 75px;
+        width: 70px;
+        height: 70px;
     }
 
     .end-turn-icon {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin-bottom: 2px;
     }
 
     .end-turn-text {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
         letter-spacing: 0.5px;
     }
 }
